@@ -68,6 +68,12 @@
 				// Take all of the <option> tags
 					$(this).find('option').each(function(index) {
 					
+            // There's a browser bug in Firefox the stops the preventDefault setting from
+            // working with <select> elements. I'm adding some CSS here to hide them until
+            // they get their act together.
+            // https://bugzilla.mozilla.org/show_bug.cgi?id=291082
+              $(this).css('display', 'none')
+
 						// If the value is void, skip it
 							if ($(this).attr('disabled') ) return
 						
@@ -76,7 +82,6 @@
 						
 						$('<li/>').appendTo($container)
 											.append( $('<a data-value="' + $(this).attr('value') + '">'+ $(this).text() +'</a>').data('source', this))
-							
 					});
 				
 					// Restack the <li> elements into columns
@@ -173,6 +178,7 @@
 		},
 		checkVisibility: function( event ){
 			// Stop the browser from showing the drop down menu
+        console.log(event)
 				event.preventDefault()
 			// Store the container so we don't have to keep referencing it.
 				var container = $(this).data('container');
