@@ -13,7 +13,7 @@
     }
     #container {
       margin: 0 auto;
-      width: 700px;
+      width: 800px;
     }
     h1 { font-size: 3.8em; color: #880b30; margin-bottom: 3px; }
     h1 .small { font-size: 0.4em; }
@@ -26,6 +26,42 @@
     pre { background: #000; color: #fff; padding: 15px;}
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
+
+    .selectionList {
+      background: #81D8D0;
+      width: 600px;
+      position: absolute;
+      padding: 30px;
+      margin-top: 5px;
+      
+    }
+    .selectionList ul {
+      display: block;
+      float: left;
+      margin-right: 20px;
+      margin-left: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .selectionList p {
+      margin: 0 0 0 5px;
+      text-transform: uppercase;
+    }
+    .selectionList li { margin-bottom: 5px; }
+    .selectionList li a {
+      color: #000;
+      text-decoration: none;
+      padding: 3px 5px;
+      width: 130px;
+      display: block;
+      cursor: pointer;
+    }
+    .selectionList li a:hover { text-decoration: underline; }
+    .selectionList button { }
+    
+    .selectionList.small   { width: 200px; }
+    .selectionList.medium  { width: 500px; }
+    .selectionList.large   { width: 700px; }`
   </style>
 </head>
 
@@ -47,6 +83,73 @@
     <div class="description">
       stylishSelect turns that drab select box into a delicious looking list of elements based on your browser width.
     </div>
+    
+    <h2>Demo</h2>
+      <form action="submitted.html" method="get" accept-charset="utf-8">
+        <fieldset>
+          <select>
+            <option disabled>Select city</option>
+            <option value="abbotsford">Abbotsford</option>
+            <option value="abilene">Abilene, TX</option>
+            <option value="akron-canton">Akron / Canton</option>
+            <option value="albany-capital-region">Albany / Capital Region</option>
+            <option value="albuquerque">Albuquerque</option>
+            <option value="allentown-reading">Allentown / Reading</option>
+            <option value="amarillo">Amarillo</option>
+            <option value="anchorage">Anchorage</option>
+            <option value="ann-arbor">Ann Arbor</option>
+            <option value="asheville">Asheville</option>
+            <option value="athens-ga">Athens, GA</option>
+            <option value="atlanta">Atlanta</option>
+            <option value="augusta">Augusta</option>
+            <option value="austin">Austin</option>
+            <option value="bakersfield">Bakersfield</option>
+            <option value="baltimore">Baltimore</option>
+            <option value="barrie">Barrie</option>
+            <option value="baton-rouge">Baton Rouge</option>
+          </select>
+          <button>Submit</button>
+        </fieldset>
+      </form>
+
+      <p>Click on the option box, be amazed at the div that appears. Resize the browser and hit it again</p>
+      <p>There are a few styles that need to be set to control how the box looks, for example:</p>
+      <pre>
+        <code>
+          .selectionList {
+            background: #81D8D0;
+            width: 600px;
+            position: absolute;
+            padding: 30px;
+            margin-top: 5px;
+          }
+          .selectionList ul {
+            display: block;
+            float: left;
+            margin-right: 20px;
+            margin-left: 0;
+            padding: 0;
+            list-style: none;
+          }
+          .selectionList p {
+            margin: 0 0 0 5px;
+            text-transform: uppercase;
+          }
+          .selectionList li { margin-bottom: 5px; }
+          .selectionList li a {
+            color: #000;
+            text-decoration: none;
+            padding: 3px 5px;
+            width: 130px;
+            display: block;
+            cursor: pointer;
+          }
+          .selectionList li a:hover { text-decoration: underline; }
+          .selectionList.small   { width: 200px; }
+          .selectionList.medium  { width: 500px; }
+          .selectionList.large   { width: 700px; }
+        </code>
+      </pre>
 
     <h2>Contact</h2>
 <p>brett ohland (brettohland@gmail.com)<br/>      </p>
@@ -69,6 +172,21 @@
 
   </div>
 
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+
+  <script defer src="jquery.stylishSelect-0.1.js"></script>
+  <script>
+  
+    jQuery(document).ready(function() {
+      $("select").stylishSelect({'columns': {'small': 1, 'medium': 3, 'large': 4}})
+    });
+    
+  </script>
+
   <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -78,5 +196,8 @@ try {
 var pageTracker = _gat._getTracker("UA-3840385-12");
 pageTracker._trackPageview();
 } catch(err) {}</script>
+
+
+
 </body>
 </html>
