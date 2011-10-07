@@ -32,15 +32,16 @@
 (function( $ ){
 	
 	var settings = {
-		'location':  'bottom',
-		'speed':			500,
-		'copy':				'Please select an option',
-		'sizes':	 { 'small':  450,
-								 'medium': 720,
-								 'large':  900 },
-		'columns': { 'small':  1,
-								 'medium': 3,
-								 'large':  5 }
+		'location':     'bottom',
+    'hideOnClick':  true,
+		'speed':			   500,
+		'copy':			  	'Please select an option',
+		'sizes':	 {    'small':  450,
+								    'medium': 720,
+								    'large':  900 },
+		'columns': {    'small':  1,
+								    'medium': 3,
+								    'large':  5 }
 	};
 	
 	var properties = {
@@ -175,6 +176,9 @@
 			// Set the value
 						originalSelectBox.val($(this).data('value'))
 			// Hide
+        if ( settings.hideOnClick ) {
+          privateMethods.hideContainer( $(this).closest('div') )
+        }
 		},
 		checkVisibility: function( event ){
 			// Stop the browser from showing the drop down menu
