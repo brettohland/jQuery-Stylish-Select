@@ -182,7 +182,6 @@
 		},
 		checkVisibility: function( event ){
 			// Stop the browser from showing the drop down menu
-        console.log(event)
 				event.preventDefault()
 			// Store the container so we don't have to keep referencing it.
 				var container = $(this).data('container');
